@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\post;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,10 +12,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id','desc')->get();
-        //$posts = Post::latest()->paginate(5);
+        $posts = Post::orderBy('id', 'desc')->get();
         return view('posts.index', compact('posts'))->with('i', 1);
-        //return view('posts.index',compact('posts'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -38,49 +36,69 @@ class PostController extends Controller
         ]);
 
         $input = $request->all();
-
+  
         if ($image = $request->file('image')) {
             $destinationPath = 'images/';
             $postImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $postImage);
             $input['image'] = "$postImage";
         }
-
+  
         Post::create($input);
-
+   
         return redirect()->route('posts.index')->with('success','Post Create Successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(post $post)
+    public function show(Post $post)
     {
-        //
+        return view('posts.show',compact('post'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(post $post)
+    public function edit(Post $post)
     {
-        //
+        return view('posts.edit',compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, post $post)
+    public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'detail' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $input = $request->all();
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'images/';
+            $postImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $postImage);
+            $input['image'] = "$postImage";
+        }else{
+            unset($input['image']);
+        }
+        
+        $post->update($input);
+
+        return redirect()->route('posts.index')->with('success','Post Update Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(post $post)
+    public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('posts.index')->with('success','Post Deleted Successfully.');
+
+        return redirect()->route('posts.index')->with('success','Post Deleted Successfully');
     }
 }

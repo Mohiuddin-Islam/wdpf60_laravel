@@ -1,46 +1,52 @@
 @extends('layout')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12">
-            <h1>Post List</h1>
+<div class="row">
+    <div class="col-lg-12">
+        <h1>All Post</h1>
 
-            @if ($message = Session::get('success'))
+        @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
 
-            <a href="{{ route('posts.create') }}" class="btn btn-success float-right">New Post</a>
-            <table class="table table-bordered">
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Detail</th>
-                    <th>Image</th>
-                    <th>Action</th>
-                </tr>
 
-                @foreach ($posts as $post)
-                    <tr>
-                        <td>{{ $i++ }}</td>
-                        <td>{{ $post->name }}</td>
-                        <td>{{ $post->detail}}</td>
-                        <td><img src="/images/{{ $post->image }}" width="100px"></td>
-                        <td>
-                            <a class="btn btn-success" href="">Edit</a>
-                            <form action="{{route('posts.destroy',$post->id)}}" method="POST">
-                                @csrf
+        <a class="btn btn-success float-right" href="{{route('posts.create')}}">New Post</a><br><br>
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Details</th>
+                <th>Image</th>
+                <th width="230px">Action</th>
+            </tr>
 
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+        @foreach ($posts as $post)
+        <tr>
+            <td>{{$i++}}</td>
+            <td>{{$post->name}}</td>
+            <td>{{$post->detail}}</td>
+            <td><img src="/images/{{ $post->image }}" width="100px"></td>
+            <td>
 
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </table>
-        </div>
-        {{-- {!! $posts->links() !!} --}}
+                <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+
+                    <a class="btn btn-dark" href="{{ route('posts.show',$post->id) }}">Show</a>
+    
+                    <a class="btn btn-success" href="{{ route('posts.edit',$post->id) }}">Edit</a>
+
+                    @csrf
+                    @method('DELETE')
+    
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+            
+        @endforeach
+    </table>
     </div>
+</div>
+    
 @endsection
