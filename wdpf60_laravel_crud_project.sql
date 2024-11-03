@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2024 at 08:03 AM
+-- Generation Time: Nov 03, 2024 at 08:11 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -111,16 +111,19 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `name`, `detail`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'sunt autem modi', 'sunt expedita aliquid asperiores provident quaerat ut consequatur sequi cumque voluptatem nihil in est et', NULL, '2024-11-02 00:57:37', '2024-11-02 00:57:37'),
-(2, 'et ipsa deserunt', 'facere mollitia vel eius dolores et nostrum ea corporis accusamus in minus saepe minima distinctio', NULL, '2024-11-02 00:57:37', '2024-11-02 00:57:37'),
-(3, 'ea dolorum ipsa', 'fugit laborum ipsum eos officia et debitis quia nostrum ut omnis eos id voluptas qui', NULL, '2024-11-02 00:57:37', '2024-11-02 00:57:37'),
-(4, 'officiis a sunt', 'omnis odit cumque sit enim quam nostrum nostrum blanditiis iusto iusto dolor aperiam qui eos', NULL, '2024-11-02 00:57:37', '2024-11-02 00:57:37'),
 (5, 'vel culpa voluptatum', 'rerum consequatur odit nisi quas fugit aspernatur animi ut et tenetur similique quos ut dolor', NULL, '2024-11-02 00:57:37', '2024-11-02 00:57:37'),
 (6, 'iusto sed et', 'officia accusantium iure vero qui voluptas ut aut repellat quia velit doloremque consequatur ea et', NULL, '2024-11-02 00:57:37', '2024-11-02 00:57:37'),
 (7, 'eos eaque ut', 'voluptas magni dicta nisi ullam temporibus pariatur rerum adipisci in doloribus hic aut ipsum voluptatibus', NULL, '2024-11-02 00:57:37', '2024-11-02 00:57:37'),
 (8, 'enim eveniet voluptatibus', 'iure quae dolorem ab incidunt quia harum et assumenda sed provident quo rem repellendus suscipit', NULL, '2024-11-02 00:57:37', '2024-11-02 00:57:37'),
 (9, 'libero id in', 'possimus qui delectus amet omnis qui fugiat impedit veritatis inventore perferendis est autem dicta perferendis', NULL, '2024-11-02 00:57:38', '2024-11-02 00:57:38'),
-(10, 'et sunt est', 'eligendi ipsum doloribus aut ad excepturi id similique neque nam quibusdam quis sit et ducimus', NULL, '2024-11-02 00:57:38', '2024-11-02 00:57:38');
+(10, 'et sunt est', 'eligendi ipsum doloribus aut ad excepturi id similique neque nam quibusdam quis sit et ducimus', NULL, '2024-11-02 00:57:38', '2024-11-02 00:57:38'),
+(11, 'Abdullah', 'Khilgao', '20241103050537.jpg', '2024-11-02 23:05:37', '2024-11-02 23:05:37'),
+(12, 'Nazrul Islam', 'Jatrabari', '20241103051250.jpeg', '2024-11-02 23:12:50', '2024-11-02 23:12:50'),
+(13, 'Najmul Joy', 'Kadomtoli', '20241103051458.jpeg', '2024-11-02 23:14:58', '2024-11-02 23:14:58'),
+(14, 'Abir Hossain', 'Savar', '20241103051735.jpeg', '2024-11-02 23:17:35', '2024-11-02 23:17:35'),
+(15, 'Mohiuddin Islam', 'Malibagh', '20241103060832.png', '2024-11-03 00:08:32', '2024-11-03 00:08:32'),
+(16, 'Jamil Hossain', 'Motizil', '20241103061344.jpg', '2024-11-03 00:13:44', '2024-11-03 00:13:44'),
+(19, 'Rakib', 'Narayangong', '20241103070621.jpg', '2024-11-03 01:06:21', '2024-11-03 01:06:21');
 
 -- --------------------------------------------------------
 
@@ -209,7 +212,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
