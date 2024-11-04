@@ -36,17 +36,17 @@ class PostController extends Controller
         ]);
 
         $input = $request->all();
-  
+
         if ($image = $request->file('image')) {
             $destinationPath = 'images/';
             $postImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $postImage);
             $input['image'] = "$postImage";
         }
-  
+
         Post::create($input);
-   
-        return redirect()->route('posts.index')->with('success','Post Create Successfully.');
+
+        return redirect()->route('posts.index')->with('success', 'Post Create Successfully.');
     }
 
     /**
@@ -54,7 +54,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show',compact('post'));
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -62,7 +62,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit',compact('post'));
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -73,7 +73,7 @@ class PostController extends Controller
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $input = $request->all();
@@ -83,13 +83,13 @@ class PostController extends Controller
             $postImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $postImage);
             $input['image'] = "$postImage";
-        }else{
+        } else {
             unset($input['image']);
         }
-        
+
         $post->update($input);
 
-        return redirect()->route('posts.index')->with('success','Post Update Successfully');
+        return redirect()->route('posts.index')->with('success', 'Post Update Successfully');
     }
 
     /**
@@ -99,6 +99,6 @@ class PostController extends Controller
     {
         $post->delete();
 
-        return redirect()->route('posts.index')->with('success','Post Deleted Successfully');
+        return redirect()->route('posts.index')->with('success', 'Post Deleted Successfully');
     }
 }
