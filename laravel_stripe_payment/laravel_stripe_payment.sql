@@ -18,37 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `shopping_cart`
+-- Database: `laravel_stripe_payment`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `books`
---
-
-CREATE TABLE `books` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `author` text DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `price` decimal(6,2) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `books`
---
-
-INSERT INTO `books` (`id`, `name`, `author`, `image`, `price`, `created_at`, `updated_at`) VALUES
-(1, 'Laravel', 'John Walke', 'https://picsum.photos/id/1/200/300', 700.00, NULL, NULL),
-(2, 'Android smartphone with a 6.5', 'Android smartphone with a 6.5-inch display, octa-core processor, 4GB of RAM, 64GB storage (expandable), a triple rear camera setup (13MP main, 2MP depth, 2MP macro), an approximate 8MP front camera.', 'https://picsum.photos/seed/picsum/200/300', 698.88, NULL, NULL),
-(3, 'Digital Camera EOS', 'Canon cameras come in various models with diverse features, but generally, they offer high-quality imaging, a range of resolutions, interchangeable lenses, advanced autofocus systems.', 'https://picsum.photos/200/300/?blur', 983.00, NULL, NULL),
-(4, 'LOIS CARON Watch', 'The Lois Caron watch typically features a stainless steel case, quartz movement, analog display, synthetic leather or metal strap, and water resistance at varying depths.', 'https://picsum.photos/200/300?grayscale', 675.00, NULL, NULL),
-(5, 'Elegante unisex adult square', 'Sunglasses come in a wide variety of styles, but they generally feature UV-protective lenses housed in plastic or metal frames.', 'https://picsum.photos/200/300?grayscale', 159.99, NULL, NULL),
-(6, 'Large Capacity Folding Bag', 'A typical travel bag is designed with durable materials, multiple compartments, sturdy handles, and often includes wheels for easy maneuverability.', 'https://picsum.photos/200/300.jpg', 68.00, NULL, NULL),
-(7, 'Lenovo Smartchoice Ideapad 3', 'Lenovo laptops typically offer various configurations with features such as Intel or AMD processors.', 'https://picsum.photos/id/1/200/300', 129.99, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -86,8 +57,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2024_12_04_041155_create_books_table', 1);
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1);
 
 -- --------------------------------------------------------
 
@@ -142,12 +112,6 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `books`
---
-ALTER TABLE `books`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -186,12 +150,6 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `books`
---
-ALTER TABLE `books`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -201,7 +159,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
