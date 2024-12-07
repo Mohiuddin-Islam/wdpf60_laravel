@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StripeController extends Controller
 {
@@ -12,31 +13,51 @@ class StripeController extends Controller
     {
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
+        $orderNum = time();
+
         $productname = $request->get('productDetails');
         $totalprice = $request->get('total');
         $two0 = "00";
         $total = "$totalprice$two0";
 
+        //Order Entry
+
+        DB::table('orders')->insert([
+            'order_number' => $orderNum,
+            'total_amount' => $totalprice,
+            'payment_method' => 'stripe'
+        ]);
+
+        //Order Details Entry
+        foreach(session()->get('cart') as $key => $val){
+            DB::table('order_details')->insert([
+                'order_number' => $orderNum,
+                'book_id' => $key,
+                'quantity' => $val['quantity'],
+                'price' => $val['price']
+            ]);
+        }
+
         $session = \Stripe\Checkout\Session::create([
-            'line_items'  => [
+            'line_items' => [
                 [
                     'price_data' => [
-                        'currency'     => 'USD',
+                        'currency' => 'USD',
                         'product_data' => [
                             "name" => $productname,
                         ],
-                        'unit_amount'  => $total,
+                        'unit_amount' => $total,
                     ],
-                    'quantity'   => 1,
+                    'quantity' => 1,
                 ],
 
             ],
-            'mode'        => 'payment',
+            'mode' => 'payment',
             'success_url' => route('success'),
-            'cancel_url'  => route('shopping.checkout'),
+            'cancel_url' => route('shopping.checkout'),
         ]);
 
-        //session()->forget('cart');
+        session()->forget('cart');
         return redirect()->away($session->url);
     }
 
@@ -44,4 +65,12 @@ class StripeController extends Controller
     {
         return view('success');
     }
+
+    // public function productOrder(){
+    //     $cart = session()->get('cart');
+    //     echo $cart->name;
+    //     $cart[3];
+
+    //     DB::table('orders');
+    // }
 }

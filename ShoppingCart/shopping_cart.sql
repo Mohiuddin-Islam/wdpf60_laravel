@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3310
--- Generation Time: Dec 05, 2024 at 08:15 AM
+-- Generation Time: Dec 07, 2024 at 07:49 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,7 @@ CREATE TABLE `books` (
 
 INSERT INTO `books` (`id`, `name`, `author`, `image`, `price`, `created_at`, `updated_at`) VALUES
 (1, 'Laravel', 'John Walke', 'https://picsum.photos/id/1/200/300', 700.00, NULL, NULL),
-(2, 'Android smartphone with a 6.5', 'Android smartphone with a 6.5-inch display, octa-core processor, 4GB of RAM, 64GB storage (expandable), a triple rear camera setup (13MP main, 2MP depth, 2MP macro), an approximate 8MP front camera.', 'https://picsum.photos/seed/picsum/200/300', 698.88, NULL, NULL),
+(2, 'Android smartphone with a 6.5', 'Android smartphone with a 6.5-inch display, octa-core processor, 4GB of RAM, 64GB storage (expandable), a triple rear camera setup (13MP main, 2MP depth, 2MP macro), an approximate 8MP front camera.', 'https://picsum.photos/200/300?grayscale', 698.88, NULL, NULL),
 (3, 'Digital Camera EOS', 'Canon cameras come in various models with diverse features, but generally, they offer high-quality imaging, a range of resolutions, interchangeable lenses, advanced autofocus systems.', 'https://picsum.photos/200/300/?blur', 983.00, NULL, NULL),
 (4, 'LOIS CARON Watch', 'The Lois Caron watch typically features a stainless steel case, quartz movement, analog display, synthetic leather or metal strap, and water resistance at varying depths.', 'https://picsum.photos/200/300?grayscale', 675.00, NULL, NULL),
 (5, 'Elegante unisex adult square', 'Sunglasses come in a wide variety of styles, but they generally feature UV-protective lenses housed in plastic or metal frames.', 'https://picsum.photos/200/300?grayscale', 159.99, NULL, NULL),
@@ -88,6 +88,71 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2024_12_04_041155_create_books_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_number` varchar(191) NOT NULL,
+  `total_amount` double(8,2) NOT NULL,
+  `payment_method` enum('cod','stripe') NOT NULL DEFAULT 'cod',
+  `payment_status` enum('paid','unpaid') NOT NULL DEFAULT 'unpaid',
+  `status` enum('pending','process','delivered','cancel') NOT NULL DEFAULT 'pending',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_number`, `total_amount`, `payment_method`, `payment_status`, `status`, `created_at`, `updated_at`) VALUES
+(1, '1733547900', 2382.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
+(2, '1733550636', 2382.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
+(3, '1733550651', 2382.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
+(4, '1733550708', 2382.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
+(5, '1733551015', 2382.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
+(6, '1733551218', 3031.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
+(7, '1733551341', 3031.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
+(8, '1733551504', 2166.00, 'stripe', 'unpaid', 'pending', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_number` varchar(191) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_details`
+--
+
+INSERT INTO `order_details` (`id`, `order_number`, `book_id`, `quantity`, `price`, `created_at`, `updated_at`) VALUES
+(1, '1733551015', 1, 1, 700.00, NULL, NULL),
+(2, '1733551015', 3, 1, 983.00, NULL, NULL),
+(3, '1733551015', 2, 1, 698.88, NULL, NULL),
+(4, '1733551218', 3, 2, 983.00, NULL, NULL),
+(5, '1733551218', 4, 1, 675.00, NULL, NULL),
+(6, '1733551218', 7, 3, 129.99, NULL, NULL),
+(7, '1733551341', 3, 2, 983.00, NULL, NULL),
+(8, '1733551341', 4, 1, 675.00, NULL, NULL),
+(9, '1733551341', 7, 3, 129.99, NULL, NULL),
+(10, '1733551504', 1, 1, 700.00, NULL, NULL),
+(11, '1733551504', 2, 2, 698.88, NULL, NULL),
+(12, '1733551504', 6, 1, 68.00, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -161,6 +226,19 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `order_number` (`order_number`);
+
+--
+-- Indexes for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
@@ -202,6 +280,18 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
