@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3310
--- Generation Time: Dec 07, 2024 at 07:49 AM
+-- Generation Time: Dec 08, 2024 at 07:57 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -118,7 +118,9 @@ INSERT INTO `orders` (`id`, `order_number`, `total_amount`, `payment_method`, `p
 (5, '1733551015', 2382.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
 (6, '1733551218', 3031.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
 (7, '1733551341', 3031.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
-(8, '1733551504', 2166.00, 'stripe', 'unpaid', 'pending', NULL, NULL);
+(8, '1733551504', 2166.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
+(9, '1733639112', 3058.00, 'stripe', 'unpaid', 'pending', NULL, NULL),
+(10, '1733639292', 2382.00, 'stripe', 'unpaid', 'pending', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -152,7 +154,13 @@ INSERT INTO `order_details` (`id`, `order_number`, `book_id`, `quantity`, `price
 (9, '1733551341', 7, 3, 129.99, NULL, NULL),
 (10, '1733551504', 1, 1, 700.00, NULL, NULL),
 (11, '1733551504', 2, 2, 698.88, NULL, NULL),
-(12, '1733551504', 6, 1, 68.00, NULL, NULL);
+(12, '1733551504', 6, 1, 68.00, NULL, NULL),
+(13, '1733639112', 1, 2, 700.00, NULL, NULL),
+(14, '1733639112', 3, 1, 983.00, NULL, NULL),
+(15, '1733639112', 4, 1, 675.00, NULL, NULL),
+(16, '1733639292', 1, 1, 700.00, NULL, NULL),
+(17, '1733639292', 3, 1, 983.00, NULL, NULL),
+(18, '1733639292', 2, 1, 698.88, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -285,13 +293,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
