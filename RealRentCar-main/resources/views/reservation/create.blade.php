@@ -71,7 +71,7 @@
                         </div>
                         <div class="mt-12 md:block hidden  ">
                             <button type="submit"
-                                class="text-white bg-pr-400 p-3 w-full rounded-lg font-bold hover:bg-black shadow-xl hover:shadow-none ">Order
+                                class="text-white bg-pr-400 p-3 w-full rounded-lg font-bold hover:bg-black shadow-xl hover:shadow-none ">Book
                                 Now</button>
                         </div>
                     </form>
@@ -123,7 +123,7 @@
                 </div>
                 <div id="mobile_submit_button" class="mt-12 w-full md:hidden  ">
                     <button type="submit"
-                        class="text-white bg-pr-400 p-3 w-full rounded-lg font-bold hover:bg-black shadow-xl hover:shadow-none ">Order
+                        class="text-white bg-pr-400 p-3 w-full rounded-lg font-bold hover:bg-black shadow-xl hover:shadow-none ">Book
                         Now</button>
                 </div>
             </div>
@@ -149,11 +149,7 @@
             </script>
         @endif
 
-
-
     </div>
-
-
 
     <script>
         $(document).ready(function() {

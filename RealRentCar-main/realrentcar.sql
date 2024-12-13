@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2024 at 04:24 PM
+-- Generation Time: Dec 13, 2024 at 05:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -48,18 +48,18 @@ CREATE TABLE `cars` (
 
 INSERT INTO `cars` (`id`, `brand`, `model`, `engine`, `price_per_day`, `image`, `quantity`, `status`, `reduce`, `stars`, `created_at`, `updated_at`) VALUES
 (4, 'Toyota', 'Camry', '2.5L', 5000.00, '/images/cars/Toyota_Camry.jpg', '1', 'Available', 30, 5, NULL, '2024-11-15 08:51:10'),
-(5, 'Honda', 'Civic', '1.8L', 4500.00, '/images/cars/Honda_Civic.jpg', '1', 'Reserved', 10, 5, NULL, '2024-11-13 12:48:19'),
+(5, 'Honda', 'Civic', '1.8L', 4500.00, '/images/cars/Honda_Civic.jpg', '1', 'available', 10, 5, NULL, '2024-12-11 11:53:35'),
 (6, 'Ford', 'Mustang', '5.0L V8', 7000.00, '/images/cars/Ford_Mustang.jpg', '1', 'Available', 0, 5, NULL, NULL),
-(7, 'BMW', 'X5', '3.0L', 7500.00, '/images/cars/BMW_X5.jpg', '1', 'Reserved', 20, 5, NULL, '2024-11-14 08:16:10'),
-(8, 'Mercedes-Benz', 'E-Class', '2.0L', 6500.00, '/images/cars/Mercedes-Benz_E-Class.jpg', '1', 'Reserved', 10, 5, NULL, '2024-11-14 06:36:30'),
+(7, 'BMW', 'X5', '3.0L', 7500.00, '/images/cars/BMW_X5.jpg', '1', 'available', 20, 5, NULL, '2024-12-11 11:53:47'),
+(8, 'Mercedes-Benz', 'E-Class', '2.0L', 6500.00, '/images/cars/Mercedes-Benz_E-Class.jpg', '1', 'available', 10, 5, NULL, '2024-12-11 11:53:59'),
 (9, 'Chevrolet', 'Malibu', '1.5L', 5500.00, '/images/cars/Chevrolet_Malibu.jpg', '1', 'Available', 50, 5, NULL, NULL),
-(10, 'Audi', 'A4', '2.0L', 5500.00, '/images/cars/Audi_A4.jpg', '1', 'Reserved', 40, 5, NULL, '2024-11-14 06:26:57'),
-(11, 'Nissan', 'Altima', '2.5L', 4500.00, '/images/cars/Nissan_Altima.jpg', '1', 'Available', 60, 5, NULL, NULL),
+(10, 'Audi', 'A4', '2.0L', 5500.00, '/images/cars/Audi_A4.jpg', '1', 'available', 40, 5, NULL, '2024-12-11 11:54:08'),
+(11, 'Nissan', 'Altima', '2.5L', 4500.00, '/images/cars/Nissan_Altima.jpg', '1', 'available', 60, 5, NULL, '2024-12-11 11:53:26'),
 (12, 'Hyundai', 'Sonata', '2.5L', 6500.00, '/images/cars/Hyundai_Sonata.jpg', '1', 'Available', 30, 5, NULL, NULL),
 (13, 'Kia', 'Optima', '2.0L', 4500.00, '/images/cars/Kia_Optima.jpg', '1', 'Available', 20, 5, NULL, NULL),
 (14, 'Volkswagen', 'Golf', '1.4L', 6500.00, '/images/cars/Volkswagen_Golf.jpg', '1', 'Available', 40, 5, NULL, NULL),
 (15, 'Subaru', 'Impreza', '2.0L', 3500.00, '/images/cars/Subaru_Impreza.jpg', '1', 'Available', 20, 5, NULL, NULL),
-(16, 'Ford', 'Focus', '1.6L', 4500.00, '/images/cars/Ford_Focus.jpg', '1', 'Available', 30, 5, NULL, NULL),
+(16, 'Ford', 'Focus', '1.6L', 4500.00, '/images/cars/Ford_Focus.jpg', '1', 'available', 30, 5, NULL, '2024-12-11 11:56:10'),
 (17, 'Tesla', 'Model 3', 'Electric', 7500.00, '/images/cars/Tesla_Model_3.jpg', '1', 'Available', 20, 5, NULL, NULL),
 (18, 'Chevrolet', 'Camaro', '6.2L V8', 5000.00, '/images/cars/Chevrolet_Camaro.jpg', '1', 'Available', 20, 5, NULL, NULL),
 (19, 'Jaguar', ' F-Type', '3.0L V6', 2500.00, '/images/cars/Jaguar_F-Type.jpg', '1', 'Available', 35, 5, NULL, NULL),
@@ -72,7 +72,7 @@ INSERT INTO `cars` (`id`, `brand`, `model`, `engine`, `price_per_day`, `image`, 
 (26, 'Fiat', '500', '1.4L', 4000.00, '/images/cars/Fiat_500.jpg', '1', 'Available', 40, 5, NULL, NULL),
 (27, 'Mini', 'Cooper', '1.5L', 5500.00, '/images/cars/Mini_Cooper.jpg', '1', 'Available', 30, 5, NULL, NULL),
 (28, 'Audi', 'Q5', '2.0L', 8000.00, '/images/cars/Audi_Q5.jpg', '1', 'Available', 40, 5, NULL, NULL),
-(34, 'Tata', 'SUV', '1800hz', 5000.00, '/images/cars/Tata-SUV-1800hz-JlkZsv158I.jpg', '10', 'available', 30, 4, '2024-11-13 12:39:55', '2024-11-13 12:39:55');
+(34, 'Tata', 'SUV', '1800hz', 5500.00, '/images/cars/Tata-SUV-1800hz-JlkZsv158I.jpg', '10', 'available', 30, 4, '2024-11-13 12:39:55', '2024-11-27 14:04:22');
 
 -- --------------------------------------------------------
 
@@ -185,11 +185,8 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`id`, `user_id`, `car_id`, `start_date`, `end_date`, `days`, `price_per_day`, `total_price`, `status`, `payment_method`, `payment_status`, `created_at`, `updated_at`) VALUES
-(3, 1, 5, '2024-11-15', '2024-11-17', 2, 4500.00, 9000.00, 'Active', 'At store', 'Paid', '2024-11-13 12:48:19', '2024-11-13 12:49:47'),
-(4, 1, 4, '2024-11-15', '2024-11-18', 3, 5000.00, 15000.00, 'Canceled', 'At store', 'Canceled', '2024-11-13 13:56:27', '2024-11-15 08:51:16'),
-(5, 6, 10, '2024-11-15', '2024-11-17', 2, 5500.00, 11000.00, 'Pending', 'At store', 'Pending', '2024-11-14 06:26:57', '2024-11-14 06:26:57'),
-(6, 7, 8, '2024-11-20', '2024-11-22', 2, 6500.00, 13000.00, 'Active', 'At store', 'Paid', '2024-11-14 06:36:30', '2024-11-14 06:38:18'),
-(7, 6, 7, '2024-11-18', '2024-11-20', 2, 7500.00, 15000.00, 'Active', 'At store', 'Paid', '2024-11-14 08:16:10', '2024-11-14 08:17:45');
+(8, 8, 11, '2024-11-28', '2024-11-30', 2, 4500.00, 9000.00, 'Pending', 'At store', 'Pending', '2024-11-27 13:59:02', '2024-12-13 09:50:51'),
+(9, 9, 16, '2024-12-12', '2024-12-14', 2, 4500.00, 9000.00, 'Active', 'At store', 'Paid', '2024-12-11 11:11:15', '2024-12-11 11:15:27');
 
 -- --------------------------------------------------------
 
@@ -215,12 +212,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `avatar`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Mohiuddin', 'admin@gmail.com', NULL, '$2y$10$NYF0fJagiOHjcVpafS1mbeFxvPU5qykOsJXM78cwnr4Sh0UGQuyUe', 'client', '/images/avatars/Mohiuddin-3I8nbQBrjg.png', NULL, '2024-11-13 08:47:34', '2024-11-13 08:47:34'),
-(2, 'Test Admin', 'test_admin@email.com', NULL, '$2y$10$31rHBar5zvajJN1b4XJpJek3NN852t3dml46meyjR4jbKE40OTMR.', 'admin', '/images/avatars/avatar_2.jpg', NULL, '2024-11-13 11:50:02', '2024-11-13 11:50:02'),
 (3, 'Test User', 'test_user@email.com', NULL, '$2y$10$wO0ElcClvFf6hv2m2JVbLOFKdERHSHl2uXsCV/Pm05nNPzshwNZI.', 'client', '/images/avatars/avatar_6.jpg', NULL, '2024-11-13 11:50:02', '2024-11-13 11:50:02'),
 (5, 'Mohiuddin', 'mohiuddincr7@gmail.com', NULL, '$2y$10$6YqyDe.yP281EHl0pwjVi.vEqHWlVNnm25jVdiFk7VK.B8lgW7De6', 'admin', '/images/avatars/Mohiuddin-A7wiE5au76.png', NULL, '2024-11-13 14:01:20', '2024-11-13 14:01:23'),
-(6, 'Abdullah', 'asm@gmail.com', NULL, '$2y$10$2k1Qad/.O5jShZLv9.Xhuufus/7TEdyyQjIZkxZH/Z1kZSSuwIMCa', 'client', '/images/avatars/avatar_4.jpg', NULL, '2024-11-14 06:26:20', '2024-11-14 06:26:20'),
-(7, 'Rakib', 'rakib@gmail.com', NULL, '$2y$10$E4Me7XVCvq7KX20QqqPkmeTsx5uBLIHHC3qI/UOwdRxa7BiU4n.Eq', 'client', '/images/avatars/Rakib-g6g225tcm3.jpg', NULL, '2024-11-14 06:34:33', '2024-11-14 06:34:34');
+(8, 'Jamil Hossain', 'jamil@gmail.com', NULL, '$2y$10$HtsUbtREE9d3CRIHtmCJSu496vvZB/veHjAymGaYjFa/LSFe7ThtC', 'client', '/images/avatars/avatar_2.jpg', NULL, '2024-11-27 13:58:13', '2024-11-27 13:58:13'),
+(9, 'Nuruzzaman', 'nur@gmail.com', NULL, '$2y$10$y5AEgdfxIrpEC0FITycm6egrA0ZJMbxCOvJRx4wzsGi7stX56jGQG', 'client', '/images/avatars/avatar_2.jpg', NULL, '2024-12-11 11:10:29', '2024-12-11 11:10:29');
 
 --
 -- Indexes for dumped tables
@@ -288,7 +283,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -312,13 +307,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables

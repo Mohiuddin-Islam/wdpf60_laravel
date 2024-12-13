@@ -69,8 +69,7 @@
                                             class="text-black">৳</span> </p>
                                 </div>
 
-
-
+                                
                             </div>
                             <div class="mt-8 flex justify-start md:gap-16 gap-6">
 

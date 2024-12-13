@@ -438,7 +438,6 @@
         </footer>
     @endif
 
-
 </body>
 <script>
     function scrollToTop() {

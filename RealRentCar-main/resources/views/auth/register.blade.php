@@ -7,7 +7,7 @@
 
                 <div class="mb-6">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name : </label>
-                    <input type="text" id="name" name="name" value="{{ old('name') }}"
+                    <input type="text" id="name" name="name" placeholder="Enter Name" value="{{ old('name') }}"
                         class="bg-pr-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pr-500 focus:border-pr-500 block w-full p-2.5 ">
                     @error('name')
                         <span>
@@ -19,7 +19,7 @@
                 <div class="mb-6">
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Address
                         : </label>
-                    <input type="email" id="email" name="email" value="{{ old('name') }}"
+                    <input type="email" id="email" name="email" placeholder="Enter Email Address" value="{{ old('name') }}"
                         class="bg-pr-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pr-500 focus:border-pr-500 block w-full p-2.5 ">
                     @error('email')
                         <span>
@@ -83,8 +83,8 @@
 
                 <div class="mb-6">
                     <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        password :</label>
-                    <input type="password" id="password"
+                        Password :</label>
+                    <input type="password" id="password" placeholder="Enter Password"
                         class="bg-pr-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pr-500 focus:border-pr-500 block w-full p-2.5 "
                         name="password">
                     @error('password')
@@ -97,7 +97,7 @@
                 <div class="mb-6">
                     <label for="password-confirm" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                         Confirm password :</label>
-                    <input type="password" id="password-confirm"
+                    <input type="password" id="password-confirm" placeholder="Enter Confirm Password"
                         class="bg-pr-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pr-500 focus:border-pr-500 block w-full p-2.5 "
                         name="password_confirmation">
 
