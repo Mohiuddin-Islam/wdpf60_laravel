@@ -2,13 +2,19 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
 
+
 Route::resource('posts', PostController::class);
+Route::resource('/students', StudentController::class);
+
+
+
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [

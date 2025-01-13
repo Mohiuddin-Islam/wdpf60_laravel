@@ -38,7 +38,6 @@ const submit = () => {
                                     placeholder="Enter Title" 
                                     id="title"
                                     v-model="form.title" />
-
                             </div>
 
                             <div class="mb-4">

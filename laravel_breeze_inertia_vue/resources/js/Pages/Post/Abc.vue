@@ -24,12 +24,15 @@ defineProps({
         <Link :href="route('posts.create')" class="bg-blue-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded my-3">New Entry</Link>  
         <br><br>
         <table class="table table-bordered">
+            <thead>
             <tr>
                 <th>Sn</th>
                 <th>Title</th>
                 <th>Details</th>
                 <th style="width: 230px;">Action</th>
             </tr>
+        </thead>
+        <tbody>
             <tr v-for="x in posts" :key="x.id">
                 <td>{{ x.id }}</td>
                 <td>{{ x.title }}</td>
@@ -40,6 +43,7 @@ defineProps({
                     <button class="btn btn-danger" @click="deleteForm(x.id)">Delete</button> 
                 </td>
             </tr>
+        </tbody>
         </table>
     </div>
 </template>

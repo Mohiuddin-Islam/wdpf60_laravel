@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3310
--- Generation Time: Jan 06, 2025 at 08:16 AM
+-- Generation Time: Jan 13, 2025 at 08:35 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -58,7 +58,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2014_10_12_100000_create_password_reset_tokens_table', 1),
 (8, '2019_08_19_000000_create_failed_jobs_table', 1),
 (9, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(10, '2025_01_06_063206_create_posts_table', 1);
+(10, '2025_01_06_063206_create_posts_table', 1),
+(11, '2025_01_13_035616_create_students_table', 2);
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,30 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `body`, `created_at`, `updated_at`) VALUES
-(1, 'JavaScript', 'Book', NULL, NULL);
+(1, 'JavaScript', 'Book', NULL, '2025-01-07 22:56:04'),
+(2, 'Laravel', 'Book', NULL, NULL),
+(3, 'PHP', 'Book', '2025-01-07 22:07:30', '2025-01-07 22:07:30'),
+(4, 'JQuery', 'Book', '2025-01-07 22:09:40', '2025-01-07 22:09:40'),
+(5, 'MySQL', 'Book', '2025-01-07 22:18:03', '2025-01-07 22:18:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `dob` date NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `gender` enum('male','female') NOT NULL,
+  `district` varchar(255) NOT NULL,
+  `languages` varchar(255) NOT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -128,6 +152,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Mohiuddin', 'admin@gmail.com', NULL, '$2y$10$kqnBxXCcjzdACjK62QnLJeiKzlZCCpJbxG/lkmmK.9VxdzNBRae0.', NULL, '2025-01-07 21:32:24', '2025-01-07 21:32:24');
 
 --
 -- Indexes for dumped tables
@@ -167,6 +198,12 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -187,7 +224,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -199,13 +236,19 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
