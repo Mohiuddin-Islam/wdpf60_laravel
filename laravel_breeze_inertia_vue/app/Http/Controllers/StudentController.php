@@ -13,8 +13,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        return Inertia::render('Student/Index', compact('students'));
+        $student = Student::all();
+        return Inertia::render('Student/Index', compact('student'));
     }
 
     /**
@@ -30,9 +30,19 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $students = new Student($request->all());
-        $students->save();
-        return Inertia::render('Student/Index',compact('students'));
+        $student = new Student($request->all());
+        $languages = json_encode($student->languages);
+        $student['languages'] = $languages;
+
+        if ($image = $request->file('photo')) {
+            $destinationPath = 'images/';
+            $postImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $postImage);
+            $student['photo'] = $destinationPath . $postImage;
+        }
+
+        $student->save();
+        return redirect()->route('students.index')->with('msg','Success');
     }
 
     /**
@@ -64,6 +74,7 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        return redirect()->route('students.index')->with('msg','Success');
     }
 }

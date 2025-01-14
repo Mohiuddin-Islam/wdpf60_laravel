@@ -1,20 +1,35 @@
 <script setup>
-import { useForm, Link } from "@inertiajs/vue3";
+import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import { useForm, Link, usePage } from "@inertiajs/vue3";
+
+
+const deleteForm =(id) =>{
+    form.delete(`students/${id}`)
+}
 
 defineProps({
-    students: {
+    student: {
+        type: Array,
+        default: () => [],
+    },
+
+    languages: {
         type: Array,
         default: () => [],
     },
 });
+
+const LangConvert = (lang)=>{
+    return JSON.parse(lang).join(', ');
+}
 </script>
 
 <template>
     <div class="container">
-        <Link :href="route('students.create')" class="btn btn-info"
+        <Link :href="route('students.create')" class="btn btn-success"
             >Add New</Link
         >
-        <h1 class="display-1">Students List</h1>
+        <h1 class="display-1">Students List</h1><br>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -26,18 +41,26 @@ defineProps({
                     <th>Date of Birth</th>
                     <th>District</th>
                     <th>Language</th>
+                    <th style="width: 240px;">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="x in students" :key="x.id">
+                <tr v-for="x in student" :key="x.id">
                     <td>{{ x.id }}</td>
                     <td>{{ x.name }}</td>
-                    <td>{{ x.photo }}</td>
+                    <td><img :src="x.photo" width="100"></td>
                     <td>{{ x.address }}</td>
                     <td>{{ x.gender }}</td>
                     <td>{{ x.dob }}</td>
                     <td>{{ x.district }}</td>
-                    <td>{{ x.languages }}</td>
+                    <td>
+                        {{LangConvert( x.languages)}}
+                    </td>
+
+                    <td class="border px-4 py-2">
+                        <Link :href="`students/${student.id}/edit`"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button></Link>
+                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2" @click="deleteForm(student.id)">Delete</button>
+                    </td>
                 </tr>
             </tbody>
             <tfoot>
@@ -50,10 +73,13 @@ defineProps({
                     <th>Date of Birth</th>
                     <th>District</th>
                     <th>Language</th>
+                    <th>Action</th>
                 </tr>
             </tfoot>
         </table>
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

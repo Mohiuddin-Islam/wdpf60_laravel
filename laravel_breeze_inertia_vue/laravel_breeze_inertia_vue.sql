@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3310
--- Generation Time: Jan 13, 2025 at 08:35 AM
+-- Generation Time: Jan 14, 2025 at 08:19 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -131,10 +131,25 @@ CREATE TABLE `students` (
   `gender` enum('male','female') NOT NULL,
   `district` varchar(255) NOT NULL,
   `languages` varchar(255) NOT NULL,
-  `photo` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `name`, `dob`, `address`, `gender`, `district`, `languages`, `photo`, `created_at`, `updated_at`) VALUES
+(1, 'Ipsum quia illum au', '2013-08-02', 'Voluptas nulla praes', 'male', 'Dhaka', '[\"bangla\"]', '', '2025-01-13 22:45:28', '2025-01-13 22:45:28'),
+(2, 'Nobis rerum incididu', '2015-12-15', 'Non blanditiis offic', 'male', 'Dhaka', '[\"bangla\"]', '', '2025-01-13 22:48:23', '2025-01-13 22:48:23'),
+(3, 'Saepe repellendus E', '2015-11-15', 'Rerum amet dolores', 'male', 'Rajshashi', '[\"english\"]', '', '2025-01-13 22:50:51', '2025-01-13 22:50:51'),
+(4, 'Consequuntur nesciun', '1977-11-20', 'Ea quia et nobis omn', 'male', 'Narayanganj', '[\"bangla\"]', '', '2025-01-13 23:00:35', '2025-01-13 23:00:35'),
+(7, 'In numquam dolores v', '1984-08-10', 'Aliquip in magna vel', 'male', 'Narayanganj', '[\"bangla\"]', 'images/20250114061802.jpg', '2025-01-14 00:18:02', '2025-01-14 00:18:02'),
+(8, 'Dolore tempora repre', '1999-06-24', 'Ea ut tempor enim au', 'female', 'Narayanganj', '[\"english\"]', 'images/20250114061826.png', '2025-01-14 00:18:26', '2025-01-14 00:18:26'),
+(9, 'Qui amet non repreh', '2013-04-19', 'Elit molestias aliq', 'female', 'Pabna', '[\"bangla\"]', 'images/20250114061940.png', '2025-01-14 00:19:40', '2025-01-14 00:19:40'),
+(10, 'Vel ut voluptatem mo', '2023-08-04', 'Et ducimus velit qu', 'female', 'Dhaka', '[\"arabic\"]', 'images/20250114062035.png', '2025-01-14 00:20:35', '2025-01-14 00:20:35'),
+(11, 'Nulla et ea eos cul', '2007-02-14', 'Praesentium mollit a', 'male', 'Pabna', '[\"urdu\",\"arabic\",\"english\"]', 'images/20250114065434.jpg', '2025-01-14 00:54:34', '2025-01-14 00:54:34');
 
 -- --------------------------------------------------------
 
@@ -242,7 +257,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`

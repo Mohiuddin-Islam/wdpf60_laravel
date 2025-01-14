@@ -11,7 +11,7 @@ use Inertia\Inertia;
 
 
 Route::resource('posts', PostController::class);
-Route::resource('/students', StudentController::class);
+Route::resource('students', StudentController::class);
 
 
 
